@@ -1,0 +1,116 @@
+//Algoritmo em Pseudocodigo criado por Millyana de Souza Silva
+
+Algoritmo "Investimento"
+Var
+   // Seção de Declarações das variáveis
+   nomeCategoria : vetor[1..5] de caractere
+   porcentagemObjetivoCategoria : vetor[1..5] de real
+   valorInvestidoCategoria : vetor[1..5] de real
+   porcentagemInvestidoCategoria : vetor[1..5] de real
+   totalInvestido, diferenca, maiorDiferenca, porcentagemDisponivel : real
+   i, indiceDesbalanceado : inteiro
+   valido : logico
+
+Inicio
+   // Seção de Comandos, procedimento, funções, operadores, etc...
+   i <- 0
+   totalInvestido <- 0
+   valido <- falso
+   porcentagemDisponivel <- 100
+   nomeCategoria[1] <- "CDBs"
+   nomeCategoria[2] <- "Ações"
+   nomeCategoria[3] <- "Fundos Imobiliarios"
+   nomeCategoria[4] <- "Sotcks"
+   nomeCategoria[5] <- "Reits"
+
+   //Passo 1: Indicação do valores percentuais sobre cada investimento
+   para i de 1 até 5 passo 1 faça
+      enquanto (valido=falso) faça
+         escreva("Digite a porcentagem objetivo a ser investida na ", nomeCategoria[i],"(disponivel: ", porcentagemDisponivel,"%): ")
+         leia(porcentagemObjetivoCategoria[i])
+         valido <- verdadeiro
+
+         se (porcentagemObjetivoCategoria[i] < 0) então
+            escreval("Valor inválido! O valor deve ser maior ou igual a 0!")
+            valido <- falso
+         senão
+            se (porcentagemObjetivoCategoria[i] > 100) então
+               escreval("Valor inválido! O valor deve ser maior ou igual a 0!")
+               valido <- falso
+            senão
+               se(porcentagemObjetivoCategoria[i] > porcentagemDisponivel) então
+                  escreval("Valor inválido! O valor digitado é maior do que o disponível!")
+                  valido <- falso
+               fimse
+            fimse
+         fimse
+
+         se (i = 5) então
+            se (porcentagemObjetivoCategoria[i] < porcentagemDisponivel) então
+               escreval("Você deve digitar a porcetagem disponível")
+               valido <- falso
+            fimse
+         fimse
+      fimenquanto
+
+      valido <- falso
+      porcentagemDisponivel <- porcentagemDisponivel - porcentagemObjetivoCategoria[i])
+   fimpara
+
+   limpatela
+
+   //Passo 2: Indicar os valores que já possui investido em cada categoria
+   para i de 1 até 5 passo 1 faça
+      enquanto (valido=falso) faça
+         se (porcentagemObjetivoCategoria[i] > 0) então
+            escreva("Digite o valor investido na ", nomeCategoria[i], ": ")
+            leia(valorInvestidoCategoria[i])
+            valido <- verdadeiro
+
+            se (valorInvestidoCategoria[i] < 0) então
+               escreval("Valor inválido! O valor deve ser maior que 0!")
+               valido <- falso
+            fimse
+         senão
+            valido <- verdadeiro
+         fimse
+      fimenquanto
+
+      valido <- falso
+      totalInvestido <- totalInvestido + valorInvestidoCategoria[i]
+   fimpara
+
+   //regra de três: descobrir a porcentagem do valor investido em cada categoria
+   para i de 1 até 5 passo 1 faça
+      porcentagemInvestidoCategoria[i] <- (valorInvestidoCategoria[i] * 100) / totalInvestido
+   fimpara
+
+   limpatela
+
+   //imprime o resumo
+   para i de 1 até 5 passo 1 faça
+      escreval("objetivo da ", nomeCategoria[i], ": ", porcentagemObjetivoCategoria[i], "%")
+      escreval("porcentagem investidade na ", nomeCategoria[i], ": ", porcentagemInvestidoCategoria[i], "%")
+   fimpara
+
+   //calcula a categoria mais desbalanceada
+   para i de 1 até 5 passo 1 faça
+      diferenca <- porcentagemObjetivoCategoria[i] - porcentagemInvestidoCategoria[i]
+
+      //inverte o valor da diferença caso seja negativo
+      se (diferenca < 0) então
+         diferenca <- diferenca * -1
+      fimse
+
+      //Verifica de a diferença é maior que a maior diferença encontrada
+      se (diferenca > maiorDiferenca) então
+         maiorDiferenca <- diferenca
+         indiceDesbalanceado <- i
+      fimse
+   fimpara
+
+   limpatela
+
+   escreval("A categoria ", nomeCategoria[indiceDesbalanceado], " é a mais desbalanceada")
+   escreval("Apresenta um diferença de ", maiorDiferenca, "% em relação ao objetivo")
+Fimalgoritmo
