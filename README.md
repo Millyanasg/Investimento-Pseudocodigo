@@ -4,13 +4,6 @@ Questão realizada pela matéria de Algoritmo e logica de programação I, no Pr
 
 Uma carteira de investimentos bem diversificada, pode e deve ser composta por ativos de renda fixa e renda variável, mas isso vai depender do perfil do investidor.
 Caso o investidor tenha zero tolerância a volatilidade (oscilação do valor de seus ativos), ele não deve comprar ações na bolsa de valores diretamente. (GUEDINE, 2021).
-
-O objetivo da independência financeira é um sonho da maior parte dos brasileiros. Para se ter uma carteira de investimento eficiente e segura é muito importante o fator da "diversificação" e,  para isso, hoje existe várias opções de investimento, como por exemplo: Renda Fixa e CDBs, e a Renda Variável que são as Ações e Fundos Imobiliários. Além disso, uma boa opção para divesificação são as Stocks (ações de empresas internacionais) e os REITs (fundos imobiliários internacionais.)
-
-Imagine que você é um desenvolvedor de uma corretora de valores e precisa desenvolver um programa.
-Para isso, você recebeu as informações da empresa para lhe dar subsídios para desenvolver o seu pseudocódigo.
-Leia atentamente as informações a seguir.
-
 Neste programa, o cliente da corretora poderá definir um percentual de diversificação entre as seguintes opções de investimento:
      1 - CDBs (XX%)
      2 - Ações (XX%)
@@ -32,4 +25,4 @@ Como Regra do sistema (requisitos), você tem que:
                              B = Valor indicado de invetimento em cada categoria
                              C = B multiplico por 100
                              D = C/A 
-                             * esta regra deve ser utiliza em cada categoria
+                             * esta regra deve ser utilizada em cada categoria
